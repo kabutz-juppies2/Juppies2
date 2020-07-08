@@ -24,10 +24,16 @@ public class ArrayShufflerTest {
         instance.shuffle(indexes);
         String afterShuffle = Arrays.toString(indexes);
         System.out.println("after shuffle indexes = " + afterShuffle);
+        Arrays.sort(indexes);
+        String sorted = Arrays.toString(indexes);
+        System.out.println("sorted = " + sorted);
 
         assertNotEquals("Shuffling did not do anything", 
                 "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", afterShuffle);
         assertNotEquals("Shuffling was in a predictable sequence", 
                 "[4, 8, 9, 6, 3, 5, 2, 1, 7, 0]", afterShuffle);
+        
+        assertEquals("Does not contain the same values as before", 
+                "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", sorted);
     }
 }

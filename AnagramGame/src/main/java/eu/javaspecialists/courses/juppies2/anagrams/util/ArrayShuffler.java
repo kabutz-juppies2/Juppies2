@@ -12,14 +12,21 @@ import java.util.Random;
  * @author heinz
  */
 public class ArrayShuffler {
+    // x = 4
+    // y = 7
+    
+    // x = x + y = 11
+    // y = x - y = 11 - 7 = 4
+    // x = x - y = 11 - 4 = 7
+    
     public void shuffle(int[] indexes) {
         Random random = new Random();
         for(int i = indexes.length - 1; i > 0; i--) {
             int swap = random.nextInt(i + 1);
             if (swap != i) {
-                int tmp = indexes[i];
-                indexes[i] = indexes[swap];
-                indexes[swap] = tmp;
+                indexes[i] += indexes[swap];
+                indexes[swap] = indexes[i] - indexes[swap];
+                indexes[i] -= indexes[swap];
             }
         }
     }
