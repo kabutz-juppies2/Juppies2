@@ -5,6 +5,8 @@
  */
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
+import java.util.Random;
+
 
 public class ShuffledWordLibrary extends WordLibrary {
     private final WordLibrary other;
@@ -16,6 +18,8 @@ public class ShuffledWordLibrary extends WordLibrary {
         for(int i = 0; i < indexes.length; i++) {
             indexes[i] = i;
         }
+        
+        shuffle(indexes);
     }
     
     @Override
@@ -34,5 +38,19 @@ public class ShuffledWordLibrary extends WordLibrary {
     public int getSize() {
         return other.getSize();
     }
+
+    private void shuffle(int[] indexes) {
+        Random random = new Random(0);
+        for(int i = indexes.length - 1; i > 0; i--) {
+            int swap = random.nextInt(i + 1);
+            if (swap != i) {
+                int tmp = indexes[i];
+                indexes[i] = indexes[swap];
+                indexes[swap] = tmp;
+            }
+        }
+    }
+    
+    
     
 }
