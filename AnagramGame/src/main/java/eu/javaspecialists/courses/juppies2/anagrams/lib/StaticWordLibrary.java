@@ -23,7 +23,7 @@ package eu.javaspecialists.courses.juppies2.anagrams.lib;
 /**
  * Implementation of the logic for the Anagram Game application.
  */
-public final class StaticWordLibrary extends WordLibrary {
+public final class StaticWordLibrary implements WordLibrary {
 
     private static final String[] WORD_LIST = {
         "beer", "chocolate", "coffee",

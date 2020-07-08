@@ -8,7 +8,7 @@ package eu.javaspecialists.courses.juppies2.anagrams.lib;
 import eu.javaspecialists.courses.juppies2.anagrams.util.ArrayShuffler;
 
 
-public class ShuffledWordLibrary extends WordLibrary {
+public class ShuffledWordLibrary implements WordLibrary {
     private final WordLibrary other;
     private final int[] indexes;
 

@@ -24,14 +24,14 @@ package eu.javaspecialists.courses.juppies2.anagrams.lib;
 /**
  * Word library defining logic for the Anagram Game application.
  */
-public abstract class WordLibrary {
+public interface WordLibrary {
     /**
      * Gets the word at a given index.
      *
      * @param idx index of required word
      * @return word at that index in its natural form
      */
-    public abstract String getWord(int idx);
+    String getWord(int idx);
 
     /**
      * Gets the word at a given index in its scrambled form.
@@ -39,14 +39,14 @@ public abstract class WordLibrary {
      * @param idx index of required word
      * @return word at that index in its scrambled form
      */
-    public abstract String getScrambledWord(int idx);
+    String getScrambledWord(int idx);
 
     /**
      * Gets the number of words in the library.
      *
      * @return the total number of plain/scrambled word pairs in the library
      */
-    public abstract int getSize();
+    int getSize();
 
     /**
      * Checks whether a user's guess for a word at the given index is correct.
@@ -55,7 +55,7 @@ public abstract class WordLibrary {
      * @param userGuess the user's guess for the actual word
      * @return true if the guess was correct; false otherwise
      */
-    public boolean isCorrect(int idx, String userGuess) {
+    default boolean isCorrect(int idx, String userGuess) {
         return userGuess.equals(getWord(idx));
     }
 }
