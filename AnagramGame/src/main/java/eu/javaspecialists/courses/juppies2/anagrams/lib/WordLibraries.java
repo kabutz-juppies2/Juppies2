@@ -32,6 +32,6 @@ public final class WordLibraries {
         return new ScrambledWordLibrary(
                 new ShuffledWordLibrary(
                         new StaticWordLibrary()),
-                new OriginalScrambler());
+                ScrambledWordLibrary.ORIGINAL_SCRAMBLER);
     }
 }

@@ -31,4 +31,18 @@ public class ScrambledWordLibrary implements WordLibrary {
     public int getSize() {
         return other.getSize();
     }
+
+    /**
+     *
+     * @author heinz
+     */
+    public static interface Scrambler {
+         void scramble(char[] letters);
+    }
+
+    public static final Scrambler ORIGINAL_SCRAMBLER = new OriginalScrambler();
+    public static final Scrambler RANDOM_SCRAMBLER = new RandomScrambler();
+    public static final Scrambler ROT13_SCRAMBLER = new Rot13Scrambler();
+    public static final Scrambler SORTED_SCRAMBLER = new SortedScrambler();
+
 }

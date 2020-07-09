@@ -6,7 +6,7 @@
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 
-public class OriginalScrambler implements Scrambler {
+public class OriginalScrambler implements ScrambledWordLibrary.Scrambler {
     @Override
     public void scramble(char[] letters) {
         // do nothing - do not scramble

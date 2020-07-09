@@ -6,7 +6,7 @@
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 
-public class Rot13Scrambler implements Scrambler {
+public class Rot13Scrambler implements ScrambledWordLibrary.Scrambler {
     @Override
     public void scramble(char[] letters) {
         for (int i = 0; i < letters.length; i++) {

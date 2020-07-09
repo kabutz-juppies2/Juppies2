@@ -7,7 +7,7 @@ package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 import eu.javaspecialists.courses.juppies2.anagrams.util.ArrayShuffler;
 
-public class RandomScrambler implements Scrambler {
+public class RandomScrambler implements ScrambledWordLibrary.Scrambler {
     @Override
     public void scramble(char[] letters) {
         ArrayShuffler shuffler = new ArrayShuffler();
