@@ -5,12 +5,12 @@
  */
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
-
 import eu.javaspecialists.courses.juppies2.anagrams.util.*;
 
 import java.util.*;
 
 public class ScrambledWordLibrary implements WordLibrary {
+
     private final WordLibrary other;
     private final Scrambler scrambler;
 
@@ -41,43 +41,43 @@ public class ScrambledWordLibrary implements WordLibrary {
      * @author heinz
      */
     public static interface Scrambler {
-         void scramble(char[] letters);
+
+        void scramble(char[] letters);
     }
 
-    public static final Scrambler ORIGINAL_SCRAMBLER = new OriginalScrambler();
-    public static final Scrambler RANDOM_SCRAMBLER = new RandomScrambler();
-    public static final Scrambler ROT13_SCRAMBLER = new Rot13Scrambler();
-    public static final Scrambler SORTED_SCRAMBLER = new SortedScrambler();
-
-    private static class OriginalScrambler implements Scrambler {
+    public static final Scrambler ORIGINAL_SCRAMBLER = new Scrambler() {
         @Override
         public void scramble(char[] letters) {
             // do nothing - do not scramble
         }
-    }
-
-    private static class RandomScrambler implements Scrambler {
+    };
+    public static final Scrambler RANDOM_SCRAMBLER = new Scrambler() {
         @Override
         public void scramble(char[] letters) {
             ArrayShuffler shuffler = new ArrayShuffler();
             shuffler.shuffle(letters);
         }
-    }
+    };
+    public static final Scrambler ROT13_SCRAMBLER = new Rot13Scrambler();
+    public static final Scrambler SORTED_SCRAMBLER = new Scrambler() {
+        @Override
+        public void scramble(char[] letters) {
+            Arrays.sort(letters);
+        }
+
+    };
 
     private static class Rot13Scrambler implements Scrambler {
         @Override
         public void scramble(char[] letters) {
             for (int i = 0; i < letters.length; i++) {
-                if (letters[i] >= 'a' && letters[i] <= 'm') letters[i]+=13;
-                if (letters[i] >= 'n' && letters[i] <= 'z') letters[i]-=13;
+                if (letters[i] >= 'a' && letters[i] <= 'm') {
+                    letters[i] += 13;
+                }
+                if (letters[i] >= 'n' && letters[i] <= 'z') {
+                    letters[i] -= 13;
+                }
             }
-        }
-    }
-
-    private static class SortedScrambler implements Scrambler {
-        @Override
-        public void scramble(char[] letters) {
-            Arrays.sort(letters);
         }
     }
 }
