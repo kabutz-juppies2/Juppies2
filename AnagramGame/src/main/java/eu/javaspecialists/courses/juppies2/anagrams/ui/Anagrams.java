@@ -29,7 +29,7 @@ import java.awt.*;
 /**
  * Main window of the Anagram Game application.
  */
-public class Anagrams extends JFrame {
+public final class Anagrams extends JFrame {
 
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */

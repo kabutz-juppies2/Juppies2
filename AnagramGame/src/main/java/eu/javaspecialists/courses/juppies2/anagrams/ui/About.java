@@ -26,7 +26,7 @@ import java.awt.*;
 /**
  * About dialog of the Anagram Game application.
  */
-public class About extends JDialog {
+public final class About extends JDialog {
 
     /**
      * Creates new form About

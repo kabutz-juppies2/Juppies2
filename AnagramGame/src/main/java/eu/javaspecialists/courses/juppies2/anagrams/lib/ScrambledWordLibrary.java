@@ -19,7 +19,7 @@ import eu.javaspecialists.courses.juppies2.anagrams.util.*;
 
 import java.util.*;
 
-public class ScrambledWordLibrary extends DecoratedWordLibrary {
+public final class ScrambledWordLibrary extends DecoratedWordLibrary {
 
     private final Scrambler scrambler;
 

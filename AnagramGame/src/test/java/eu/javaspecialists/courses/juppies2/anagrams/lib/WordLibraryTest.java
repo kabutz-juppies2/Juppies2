@@ -29,7 +29,7 @@ import static org.junit.Assert.*;
 /**
  * Test of the functionality of {@link WordLibrary}.
  */
-public class WordLibraryTest {
+public final class WordLibraryTest {
 
     private WordLibrary wordLibrary;
 

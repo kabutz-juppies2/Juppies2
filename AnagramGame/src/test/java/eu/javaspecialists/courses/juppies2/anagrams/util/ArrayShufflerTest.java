@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
  *
  * @author heinz
  */
-public class ArrayShufflerTest {
+public final class ArrayShufflerTest {
 
     @Test
     public void testShuffleInts() {

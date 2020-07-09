@@ -21,7 +21,7 @@ import java.util.Random;
  *
  * @author heinz
  */
-public class ArrayShuffler {
+public final class ArrayShuffler {
 
     private ArrayShuffler() {
     }
