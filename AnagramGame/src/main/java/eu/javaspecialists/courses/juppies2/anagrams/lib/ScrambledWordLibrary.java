@@ -9,39 +9,22 @@ import eu.javaspecialists.courses.juppies2.anagrams.util.*;
 
 import java.util.*;
 
-public class ScrambledWordLibrary implements WordLibrary {
-
-    private final WordLibrary other;
+public class ScrambledWordLibrary extends DecoratedWordLibrary {
     private final Scrambler scrambler;
 
     public ScrambledWordLibrary(WordLibrary other, Scrambler scrambler) {
-        this.other = other;
+        super(other);
         this.scrambler = scrambler;
     }
 
     @Override
-    public String getWord(int idx) {
-        return other.getWord(idx);
-    }
-
-    @Override
     public String getScrambledWord(int idx) {
-        char[] letters = other.getScrambledWord(idx).toCharArray();
+        char[] letters = super.getScrambledWord(idx).toCharArray();
         scrambler.scramble(letters);
         return new String(letters);
     }
 
-    @Override
-    public int getSize() {
-        return other.getSize();
-    }
-
-    /**
-     *
-     * @author heinz
-     */
     public static interface Scrambler {
-
         void scramble(char[] letters);
     }
 

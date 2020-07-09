@@ -8,12 +8,11 @@ package eu.javaspecialists.courses.juppies2.anagrams.lib;
 import eu.javaspecialists.courses.juppies2.anagrams.util.ArrayShuffler;
 
 
-public class ShuffledWordLibrary implements WordLibrary {
-    private final WordLibrary other;
+public class ShuffledWordLibrary extends DecoratedWordLibrary {
     private final int[] indexes;
 
     public ShuffledWordLibrary(WordLibrary other) {
-        this.other = other;
+        super(other);
         indexes = new int[other.getSize()];
         for(int i = 0; i < indexes.length; i++) {
             indexes[i] = i;
@@ -25,21 +24,12 @@ public class ShuffledWordLibrary implements WordLibrary {
     @Override
     public String getWord(int idx) {
         int newIdx = indexes[idx];
-        return other.getWord(newIdx);
+        return super.getWord(newIdx);
     }
 
     @Override
     public String getScrambledWord(int idx) {
         int newIdx = indexes[idx];
-        return other.getScrambledWord(newIdx);
+        return super.getScrambledWord(newIdx);
     }
-
-    @Override
-    public int getSize() {
-        return other.getSize();
-    }
-
-    
-    
-    
 }
