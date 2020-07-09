@@ -49,7 +49,7 @@ public class ScrambledWordLibrary implements WordLibrary {
             = letters -> {
                 /* do nothing - do not scramble */ };
     public static final Scrambler RANDOM_SCRAMBLER
-            = new ArrayShuffler()::shuffle;
+            = ArrayShuffler::shuffle;
     public static final Scrambler SORTED_SCRAMBLER
             = Arrays::sort;
     public static final Scrambler ROT13_SCRAMBLER

@@ -12,6 +12,7 @@ import java.util.Random;
  * @author heinz
  */
 public class ArrayShuffler {
+    private ArrayShuffler() {}
     // x = 4 = 0b0100
     // y = 7 = 0b0111
 
@@ -21,7 +22,7 @@ public class ArrayShuffler {
     // x ^= y = 3
     // y ^= x = 4
     // x ^= y = 7
-    public void shuffle(int[] indexes) {
+    public static void shuffle(int[] indexes) {
         Random random = new Random();
         for (int i = indexes.length - 1; i > 0; i--) {
             int swap = random.nextInt(i + 1);
@@ -33,7 +34,7 @@ public class ArrayShuffler {
         }
     }
 
-    public void shuffle(char[] letters) {
+    public static void shuffle(char[] letters) {
         Random random = new Random();
         for (int i = letters.length - 1; i > 0; i--) {
             int swap = random.nextInt(i + 1);

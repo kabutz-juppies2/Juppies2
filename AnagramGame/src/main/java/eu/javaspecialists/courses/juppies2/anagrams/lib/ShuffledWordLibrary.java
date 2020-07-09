@@ -19,8 +19,7 @@ public class ShuffledWordLibrary implements WordLibrary {
             indexes[i] = i;
         }
         
-        ArrayShuffler shuffler = new ArrayShuffler();
-        shuffler.shuffle(indexes);
+        ArrayShuffler.shuffle(indexes);
     }
     
     @Override
