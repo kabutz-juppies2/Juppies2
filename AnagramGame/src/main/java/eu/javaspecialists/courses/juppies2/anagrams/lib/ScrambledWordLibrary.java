@@ -45,29 +45,18 @@ public class ScrambledWordLibrary implements WordLibrary {
         void scramble(char[] letters);
     }
 
-    public static final Scrambler ORIGINAL_SCRAMBLER = new Scrambler() {
-        @Override
-        public void scramble(char[] letters) {
-            // do nothing - do not scramble
-        }
-    };
-    public static final Scrambler RANDOM_SCRAMBLER = new Scrambler() {
-        @Override
-        public void scramble(char[] letters) {
-            ArrayShuffler shuffler = new ArrayShuffler();
-            shuffler.shuffle(letters);
-        }
-    };
-    public static final Scrambler ROT13_SCRAMBLER = new Rot13Scrambler();
-    public static final Scrambler SORTED_SCRAMBLER = new Scrambler() {
-        @Override
-        public void scramble(char[] letters) {
-            Arrays.sort(letters);
-        }
+    public static final Scrambler ORIGINAL_SCRAMBLER
+            = letters -> {
+                /* do nothing - do not scramble */ };
+    public static final Scrambler RANDOM_SCRAMBLER
+            = letters -> new ArrayShuffler().shuffle(letters);
+    public static final Scrambler SORTED_SCRAMBLER
+            = letters -> Arrays.sort(letters);
 
-    };
+    public static final Scrambler ROT13_SCRAMBLER = new Rot13Scrambler();
 
     private static class Rot13Scrambler implements Scrambler {
+
         @Override
         public void scramble(char[] letters) {
             for (int i = 0; i < letters.length; i++) {
