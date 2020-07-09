@@ -29,7 +29,7 @@ public final class WordLibraries {
     }
 
     public static WordLibrary createDefaultWordLibrary() {
-        return new SortedScrambledWordLibrary(
+        return new RandomScrambledWordLibrary(
                 new ShuffledWordLibrary(
                         new StaticWordLibrary()));
     }
