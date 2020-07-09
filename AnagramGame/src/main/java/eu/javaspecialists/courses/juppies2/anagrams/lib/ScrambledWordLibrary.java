@@ -6,6 +6,10 @@
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 
+import eu.javaspecialists.courses.juppies2.anagrams.util.*;
+
+import java.util.*;
+
 public class ScrambledWordLibrary implements WordLibrary {
     private final WordLibrary other;
     private final Scrambler scrambler;
@@ -45,4 +49,35 @@ public class ScrambledWordLibrary implements WordLibrary {
     public static final Scrambler ROT13_SCRAMBLER = new Rot13Scrambler();
     public static final Scrambler SORTED_SCRAMBLER = new SortedScrambler();
 
+    private static class OriginalScrambler implements Scrambler {
+        @Override
+        public void scramble(char[] letters) {
+            // do nothing - do not scramble
+        }
+    }
+
+    private static class RandomScrambler implements Scrambler {
+        @Override
+        public void scramble(char[] letters) {
+            ArrayShuffler shuffler = new ArrayShuffler();
+            shuffler.shuffle(letters);
+        }
+    }
+
+    private static class Rot13Scrambler implements Scrambler {
+        @Override
+        public void scramble(char[] letters) {
+            for (int i = 0; i < letters.length; i++) {
+                if (letters[i] >= 'a' && letters[i] <= 'm') letters[i]+=13;
+                if (letters[i] >= 'n' && letters[i] <= 'z') letters[i]-=13;
+            }
+        }
+    }
+
+    private static class SortedScrambler implements Scrambler {
+        @Override
+        public void scramble(char[] letters) {
+            Arrays.sort(letters);
+        }
+    }
 }
