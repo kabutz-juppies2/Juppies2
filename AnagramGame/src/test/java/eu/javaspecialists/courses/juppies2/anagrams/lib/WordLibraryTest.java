@@ -17,8 +17,7 @@
  * under the License.
  */
 
-/* Anagram Game Application */
-
+ /* Anagram Game Application */
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 import org.junit.*;
@@ -31,6 +30,7 @@ import static org.junit.Assert.*;
  * Test of the functionality of {@link WordLibrary}.
  */
 public class WordLibraryTest {
+
     private WordLibrary wordLibrary;
 
     @Before
@@ -46,9 +46,9 @@ public class WordLibraryTest {
         for (int i = 0; i < wordLibrary.getSize(); i++) {
             String clearWord = wordLibrary.getWord(i);
             String scrambledWord = wordLibrary.getScrambledWord(i);
-            assertTrue("Scrambled word \"" + scrambledWord +
-                            "\" at index: " + i +
-                            " does not represent the word \"" + clearWord + "\"",
+            assertTrue("Scrambled word \"" + scrambledWord
+                    + "\" at index: " + i
+                    + " does not represent the word \"" + clearWord + "\"",
                     isAnagram(clearWord, scrambledWord));
         }
     }
@@ -56,7 +56,7 @@ public class WordLibraryTest {
     /**
      * Tests whether given anagram represents the word.
      *
-     * @param clearWord     The word in clear text
+     * @param clearWord The word in clear text
      * @param scrambledWord Scrambled version of the word
      * @return true if the scrambledWord is correct anagram of clearWord
      */

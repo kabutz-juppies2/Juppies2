@@ -29,4 +29,5 @@
             </plugin>
         </plugins>
     </build>
+    <name>Heinz Kabutz</name>
 </project>

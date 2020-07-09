@@ -17,14 +17,14 @@
  * under the License.
  */
 
-/* Anagram Game Application */
-
+ /* Anagram Game Application */
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 /**
  * Word library defining logic for the Anagram Game application.
  */
 public interface WordLibrary {
+
     /**
      * Gets the word at a given index.
      *
@@ -51,7 +51,7 @@ public interface WordLibrary {
     /**
      * Checks whether a user's guess for a word at the given index is correct.
      *
-     * @param idx       index of the word guessed
+     * @param idx index of the word guessed
      * @param userGuess the user's guess for the actual word
      * @return true if the guess was correct; false otherwise
      */
