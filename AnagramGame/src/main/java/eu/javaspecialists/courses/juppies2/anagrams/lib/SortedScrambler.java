@@ -7,16 +7,9 @@ package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 import java.util.Arrays;
 
-
-public class SortedScrambledWordLibrary extends ScrambledWordLibrary {
-
-    public SortedScrambledWordLibrary(WordLibrary other) {
-        super(other);
-    }
-
+public class SortedScrambler implements Scrambler {
     @Override
-    protected void scramble(char[] letters) {
+    public void scramble(char[] letters) {
         Arrays.sort(letters);
     }
-    
 }

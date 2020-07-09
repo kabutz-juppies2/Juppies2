@@ -6,19 +6,11 @@
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 import eu.javaspecialists.courses.juppies2.anagrams.util.ArrayShuffler;
-import java.util.Arrays;
 
-
-public class RandomScrambledWordLibrary extends ScrambledWordLibrary {
-
-    public RandomScrambledWordLibrary(WordLibrary other) {
-        super(other);
-    }
-
+public class RandomScrambler implements Scrambler {
     @Override
-    protected void scramble(char[] letters) {
+    public void scramble(char[] letters) {
         ArrayShuffler shuffler = new ArrayShuffler();
         shuffler.shuffle(letters);
     }
-    
 }

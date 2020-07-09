@@ -17,20 +17,21 @@
  * under the License.
  */
 
-/* Anagram Game Application */
-
+ /* Anagram Game Application */
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 /**
  * Facade for all word libraries.
  */
 public final class WordLibraries {
+
     private WordLibraries() {
     }
 
     public static WordLibrary createDefaultWordLibrary() {
-        return new RandomScrambledWordLibrary(
+        return new ScrambledWordLibrary(
                 new ShuffledWordLibrary(
-                        new StaticWordLibrary()));
+                        new StaticWordLibrary()),
+                new OriginalScrambler());
     }
 }

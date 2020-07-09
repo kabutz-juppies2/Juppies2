@@ -6,11 +6,13 @@
 package eu.javaspecialists.courses.juppies2.anagrams.lib;
 
 
-public abstract class ScrambledWordLibrary implements WordLibrary {
+public class ScrambledWordLibrary implements WordLibrary {
     private final WordLibrary other;
+    private final Scrambler scrambler;
 
-    public ScrambledWordLibrary(WordLibrary other) {
+    public ScrambledWordLibrary(WordLibrary other, Scrambler scrambler) {
         this.other = other;
+        this.scrambler = scrambler;
     }
 
     @Override
@@ -21,7 +23,7 @@ public abstract class ScrambledWordLibrary implements WordLibrary {
     @Override
     public String getScrambledWord(int idx) {
         char[] letters = other.getScrambledWord(idx).toCharArray();
-        scramble(letters);
+        scrambler.scramble(letters);
         return new String(letters);
     }
 
@@ -29,6 +31,4 @@ public abstract class ScrambledWordLibrary implements WordLibrary {
     public int getSize() {
         return other.getSize();
     }
-
-    protected abstract void scramble(char[] letters);      
 }
